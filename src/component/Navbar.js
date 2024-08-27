@@ -1,5 +1,6 @@
 import React, { useState, startTransition } from "react";
 import { useTranslation } from "react-i18next";
+import logo from "../logo.png";
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
@@ -24,7 +25,8 @@ const Navbar = () => {
   return (
     <div className="flex justify-between p-5 text-lg items-center">
       <div>
-        <h2>{t("logo")}</h2>
+        {/* <h2>{t("logo")}</h2> */}
+        <img className="w-[300px] h-[150px]" src={logo} alt="" />
       </div>
       <div className="flex gap-5 items-center">
         <span className="hover:underline text-blue-600">{t("Home")}</span>
