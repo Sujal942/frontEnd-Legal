@@ -23,20 +23,29 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="flex justify-between p-5 text-lg items-center">
-      <div>
-        {/* <h2>{t("logo")}</h2> */}
-        <img className="w-[300px] h-[150px]" src={logo} alt="" />
+    <nav className="flex items-center ml-28 gap-20 p-5 md:p-6 lg:p-8 ">
+      <div className="flex items-center">
+        <img
+          className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain"
+          src={logo}
+          alt="Company Logo"
+        />
       </div>
-      <div className="flex gap-5 items-center">
-        <span className="hover:underline text-blue-600">{t("Home")}</span>
-        <span className="hover:underline text-blue-600">{t("Blogs")}</span>
-        <span className="hover:underline text-blue-600">{t("Contact")}</span>
-        <div className="ml-5">
+      <div className="flex-grow mt-16 flex text-lg items-center gap-10 md:gap-8 lg:gap-10">
+        <span className="hover:underline rounded-xl cursor-pointer text-blue-600 p-2">
+          {t("Home")}
+        </span>
+        <span className="hover:underline rounded-xl cursor-pointer text-blue-600 p-2">
+          {t("Blogs")}
+        </span>
+        <span className="hover:underline rounded-xl cursor-pointer text-blue-600 p-2">
+          {t("Contact")}
+        </span>
+        <div>
           <select
             value={selectedLanguage}
             onChange={handleLanguageChange}
-            className="p-2 border rounded-lg shadow-lg"
+            className="p-2 border rounded-lg shadow-lg bg-white focus:outline-none"
           >
             {languages.map(({ code, name }) => (
               <option key={code} value={code}>
@@ -46,7 +55,7 @@ const Navbar = () => {
           </select>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 
