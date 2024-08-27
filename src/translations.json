@@ -1,0 +1,123 @@
+{
+    "en": {
+      "home": "Home",
+      "blogs": "Blogs",
+      "contact": "Contact",
+      "aiLawyerModel": "AI-lawyer Model"
+    },
+    "es": {
+      "home": "Inicio",
+      "blogs": "Blogs",
+      "contact": "Contacto",
+      "aiLawyerModel": "Modelo AI-abogado"
+    },
+    "fr": {
+      "home": "Accueil",
+      "blogs": "Blogs",
+      "contact": "Contact",
+      "aiLawyerModel": "Modèle AI-avocat"
+    },
+    "de": {
+      "home": "Startseite",
+      "blogs": "Blogs",
+      "contact": "Kontakt",
+      "aiLawyerModel": "KI-Anwalt Modell"
+    },
+    "it": {
+      "home": "Home",
+      "blogs": "Blog",
+      "contact": "Contatto",
+      "aiLawyerModel": "Modello AI-avvocato"
+    },
+    "zh": {
+      "home": "主页",
+      "blogs": "博客",
+      "contact": "联系",
+      "aiLawyerModel": "AI律师模型"
+    },
+    "ja": {
+      "home": "ホーム",
+      "blogs": "ブログ",
+      "contact": "お問い合わせ",
+      "aiLawyerModel": "AI弁護士モデル"
+    },
+    "ko": {
+      "home": "홈",
+      "blogs": "블로그",
+      "contact": "연락처",
+      "aiLawyerModel": "AI 변호사 모델"
+    },
+    "ru": {
+      "home": "Домой",
+      "blogs": "Блоги",
+      "contact": "Контакт",
+      "aiLawyerModel": "AI-адвокат Модель"
+    },
+    "pt": {
+      "home": "Início",
+      "blogs": "Blogs",
+      "contact": "Contato",
+      "aiLawyerModel": "Modelo de Advogado AI"
+    },
+    "ar": {
+      "home": "الصفحة الرئيسية",
+      "blogs": "مدونات",
+      "contact": "اتصل",
+      "aiLawyerModel": "نموذج المحامي AI"
+    },
+    "hi": {
+      "home": "होम",
+      "blogs": "ब्लॉग्स",
+      "contact": "संपर्क",
+      "aiLawyerModel": "एआई-वकील मॉडल"
+    },
+    "bn": {
+      "home": "হোম",
+      "blogs": "ব্লগ",
+      "contact": "যোগাযোগ",
+      "aiLawyerModel": "এআই-আইনজীবী মডেল"
+    },
+    "ms": {
+      "home": "Laman Utama",
+      "blogs": "Blog",
+      "contact": "Hubungi",
+      "aiLawyerModel": "Model Peguam AI"
+    },
+    "id": {
+      "home": "Beranda",
+      "blogs": "Blog",
+      "contact": "Kontak",
+      "aiLawyerModel": "Model Pengacara AI"
+    },
+    "tr": {
+      "home": "Anasayfa",
+      "blogs": "Bloglar",
+      "contact": "İletişim",
+      "aiLawyerModel": "AI-avukat Modeli"
+    },
+    "vi": {
+      "home": "Trang Chủ",
+      "blogs": "Blog",
+      "contact": "Liên Hệ",
+      "aiLawyerModel": "Mô Hình Luật Sư AI"
+    },
+    "th": {
+      "home": "หน้าหลัก",
+      "blogs": "บล็อก",
+      "contact": "ติดต่อ",
+      "aiLawyerModel": "โมเดลทนาย AI"
+    },
+    "fa": {
+      "home": "خانه",
+      "blogs": "وبلاگ‌ها",
+      "contact": "تماس",
+      "aiLawyerModel": "مدل وکیل AI"
+    },
+    "sw": {
+      "home": "Nyumbani",
+      "blogs": "Blogu",
+      "contact": "Mawasiliano",
+      "aiLawyerModel": "Mfano wa Wakili wa AI"
+    }
+  }
+  
