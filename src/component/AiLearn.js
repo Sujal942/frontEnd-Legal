@@ -17,13 +17,23 @@ const AiLearn = () => {
             online tool into your life.
           </p>
         </div>
-        <video
+        {/* <video
           src="https://www.youtube.com/watch?v=U_1lRprmt8c"
           width="720"
           height="740"
           className="shadow-2xl rounded-xl"
           controls
-        ></video>
+        ></video> */}
+
+        <iframe
+          width="720"
+          height="740"
+          className="shadow-2xl rounded-xl"
+          src="https://www.youtube.com/watch?v=U_1lRprmt8c"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
       </div>
     </>
   );
