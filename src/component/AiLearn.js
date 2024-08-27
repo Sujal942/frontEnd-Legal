@@ -18,7 +18,7 @@ const AiLearn = () => {
           </p>
         </div>
         <video
-          src=""
+          src="https://www.youtube.com/watch?v=U_1lRprmt8c"
           width="720"
           height="740"
           className="shadow-2xl rounded-xl"
