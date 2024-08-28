@@ -5,8 +5,8 @@ const AiLawyerNews = () => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true); // Added loading state
   const [error, setError] = useState(null); // Added error state
-  // const API_KEY = process.env.REACT_APP_GNEWS_API_KEY; // Your GNews API key
-  const API_KEY = process.env.REACT_APP_NEWS_API_KEY; // Your GNews API key
+  const API_KEY = process.env.REACT_APP_GNEWS_API_KEY; // Your GNews API key
+  // const API_KEY = process.env.REACT_APP_NEWS_API_KEY; // Your News API key
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -15,8 +15,8 @@ const AiLawyerNews = () => {
           throw new Error("API key is missing");
         }
         const response = await fetch(
-          // `https://gnews.io/api/v4/search?q=India+AND+(property+OR+murder+OR+trafficking+OR+kidnapping+OR+robbery+OR+"court+cases"+OR+decisions)&token=${API_KEY}`
-          `https://newsapi.org/v2/everything?q=India+AND+(property+OR+murder+OR+trafficking+OR+kidnapping+OR+robbery+OR+"court+cases"+OR+decisions)&apiKey=${API_KEY}&language=en&sortBy=publishedAt`
+          `https://gnews.io/api/v4/search?q=India+AND+(property+OR+murder+OR+trafficking+OR+kidnapping+OR+robbery+OR+"court+cases"+OR+decisions)&token=${API_KEY}`
+          // `https://newsapi.org/v2/everything?q=India+AND+(property+OR+murder+OR+trafficking+OR+kidnapping+OR+robbery+OR+"court+cases"+OR+decisions)&apiKey=${API_KEY}&language=en&sortBy=publishedAt`
         );
         if (!response.ok) {
           throw new Error(`Failed to fetch news: ${response.statusText}`);
@@ -89,11 +89,11 @@ const AiLawyerNews = () => {
                       style={{ width: "260px", height: "200px" }} // Decreased card height
                     >
                       <img
-                        // src={article.image || "https://via.placeholder.com/150"}
-                        src={
-                          article.urlToImage ||
-                          "https://via.placeholder.com/150"
-                        }
+                        src={article.image || "https://via.placeholder.com/150"}
+                        // src={
+                        //   article.urlToImage ||
+                        //   "https://via.placeholder.com/150"
+                        // }
                         alt={article.title}
                         className="h-20 w-full object-cover rounded-md mb-2"
                       />
