@@ -5,7 +5,8 @@ const AiLawyerNews = () => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true); // Added loading state
   const [error, setError] = useState(null); // Added error state
-  const API_KEY = process.env.REACT_APP_GNEWS_API_KEY; // Your GNews API key
+  // const API_KEY = process.env.REACT_APP_GNEWS_API_KEY; // Your GNews API key
+  const API_KEY = process.env.REACT_APP_NEWS_API_KEY; // Your GNews API key
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -14,7 +15,8 @@ const AiLawyerNews = () => {
           throw new Error("API key is missing");
         }
         const response = await fetch(
-          `https://gnews.io/api/v4/search?q=India+AND+(property+OR+murder+OR+trafficking+OR+kidnapping+OR+robbery+OR+"court+cases"+OR+decisions)&token=${API_KEY}`
+          // `https://gnews.io/api/v4/search?q=India+AND+(property+OR+murder+OR+trafficking+OR+kidnapping+OR+robbery+OR+"court+cases"+OR+decisions)&token=${API_KEY}`
+          `https://newsapi.org/v2/everything?q=India+AND+(property+OR+murder+OR+trafficking+OR+kidnapping+OR+robbery+OR+"court+cases"+OR+decisions)&apiKey=${API_KEY}&language=en&sortBy=publishedAt`
         );
         if (!response.ok) {
           throw new Error(`Failed to fetch news: ${response.statusText}`);
@@ -22,7 +24,7 @@ const AiLawyerNews = () => {
         const data = await response.json();
         console.log(data); // Log the response data to check the structure
         if (data.articles) {
-          setNews(data.articles.slice(0, 40)); // Load 40 filtered news items
+          setNews(data.articles.slice(0, 60)); // Load 60 filtered news items
         }
       } catch (error) {
         console.error("Error fetching news:", error);
@@ -35,21 +37,16 @@ const AiLawyerNews = () => {
     fetchNews();
   }, [API_KEY]);
 
-  // Split news into 3 arrays for each row
-  const splitNews = (newsArray, parts) => {
-    const result = [];
-    for (let i = 0; i < parts; i++) {
-      result.push(
-        newsArray.slice(
-          i * Math.ceil(newsArray.length / parts),
-          (i + 1) * Math.ceil(newsArray.length / parts)
-        )
-      );
-    }
+  // Function to distribute news items across rows
+  const distributeNews = (newsArray, rows) => {
+    const result = Array.from({ length: rows }, () => []);
+    newsArray.forEach((item, index) => {
+      result[index % rows].push(item);
+    });
     return result;
   };
 
-  const newsRows = splitNews(news, 2);
+  const newsRows = distributeNews(news, 2);
 
   return (
     <div className="flex flex-col items-center mt-16 gap-6 px-4 sm:px-8 lg:px-16">
@@ -79,11 +76,11 @@ const AiLawyerNews = () => {
           <p className="text-center text-lg text-red-500">Error: {error}</p>
         )}
 
-        {/* Rows with Horizontal Scroll */}
+        {/* Rows with Continuous Horizontal Scroll */}
         <div className="flex flex-col gap-2">
           {newsRows.map((row, rowIndex) => (
             <div key={rowIndex} className="w-full overflow-hidden">
-              <div className="news-row overflow-x-hidden relative">
+              <div className="news-row overflow-hidden relative">
                 <div className="news-items flex animate-scroll-horizontal">
                   {row.map((article, index) => (
                     <div
@@ -92,7 +89,11 @@ const AiLawyerNews = () => {
                       style={{ width: "260px", height: "200px" }} // Decreased card height
                     >
                       <img
-                        src={article.image || "https://via.placeholder.com/150"}
+                        // src={article.image || "https://via.placeholder.com/150"}
+                        src={
+                          article.urlToImage ||
+                          "https://via.placeholder.com/150"
+                        }
                         alt={article.title}
                         className="h-20 w-full object-cover rounded-md mb-2"
                       />
@@ -136,12 +137,15 @@ const AiLawyerNews = () => {
         }
 
         .animate-scroll-horizontal {
-          animation: scroll-horizontal 20s linear infinite; /* Slower scrolling */
+          animation: scroll-horizontal 30s linear infinite; /* Adjusted animation time */
+          /* Adjust duration based on the number of items and their width */
         }
 
         .news-row {
           position: relative;
+          width: 100%;
           height: 100%;
+          overflow: hidden;
         }
 
         .news-row:hover .animate-scroll-horizontal {
