@@ -3,7 +3,9 @@ import { IoNewspaperOutline } from "react-icons/io5";
 
 const AiLawyerNews = () => {
   const [news, setNews] = useState([]);
-  const API_KEY = process.env.REACT_APP_NEWS_API_KEY; // Access the API key
+  const [loading, setLoading] = useState(true); // Added loading state
+  const [error, setError] = useState(null); // Added error state
+  const API_KEY = process.env.REACT_APP_GNEWS_API_KEY; // Your GNews API key
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -12,17 +14,21 @@ const AiLawyerNews = () => {
           throw new Error("API key is missing");
         }
         const response = await fetch(
-          `https://newsapi.org/v2/everything?q=India+AND+(property+OR+murder+OR+trafficking+OR+kidnapping+OR+robbery+OR+"court+cases"+OR+decisions)&apiKey=${API_KEY}&language=en&sortBy=publishedAt`
+          `https://gnews.io/api/v4/search?q=India+AND+(property+OR+murder+OR+trafficking+OR+kidnapping+OR+robbery+OR+"court+cases"+OR+decisions)&token=${API_KEY}`
         );
         if (!response.ok) {
           throw new Error(`Failed to fetch news: ${response.statusText}`);
         }
         const data = await response.json();
+        console.log(data); // Log the response data to check the structure
         if (data.articles) {
           setNews(data.articles.slice(0, 40)); // Load 40 filtered news items
         }
       } catch (error) {
         console.error("Error fetching news:", error);
+        setError(error.message);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -43,7 +49,7 @@ const AiLawyerNews = () => {
     return result;
   };
 
-  const newsRows = splitNews(news, 3);
+  const newsRows = splitNews(news, 2);
 
   return (
     <div className="flex flex-col items-center mt-16 gap-6 px-4 sm:px-8 lg:px-16">
@@ -67,6 +73,12 @@ const AiLawyerNews = () => {
           Indian Commercial News & Court Cases
         </h2>
 
+        {/* Show loading or error message */}
+        {loading && <p className="text-center text-lg">Loading...</p>}
+        {error && (
+          <p className="text-center text-lg text-red-500">Error: {error}</p>
+        )}
+
         {/* Rows with Horizontal Scroll */}
         <div className="flex flex-col gap-2">
           {newsRows.map((row, rowIndex) => (
@@ -80,19 +92,15 @@ const AiLawyerNews = () => {
                       style={{ width: "260px", height: "200px" }} // Decreased card height
                     >
                       <img
-                        src={
-                          article.urlToImage ||
-                          "https://via.placeholder.com/150"
-                        }
+                        src={article.image || "https://via.placeholder.com/150"}
                         alt={article.title}
-                        className="h-20 w-full object-cover rounded-md mb-2" // Image height adjusted
+                        className="h-20 w-full object-cover rounded-md mb-2"
                       />
                       <h3 className="text-xs sm:text-sm font-semibold mb-1 truncate">
                         {article.title}
                       </h3>
                       <p className="text-xs sm:text-xs text-gray-700 mb-2 truncate">
-                        {article.description?.substring(0, 50)}{" "}
-                        {/* Description truncated */}
+                        {article.description?.substring(0, 50)}
                       </p>
                       <a
                         href={article.url}
