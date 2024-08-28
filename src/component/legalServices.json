@@ -29,11 +29,11 @@
   },
   "Child support": {
     "description": "Consult with artificial intelligence regarding child benefits.",
-    "icon": "IoMdClose" 
+    "icon": "FaChild" 
   },
   "Cease and Desist Letter": {
     "description": "Letter when somebody is infringing your intellectual property.",
-    "icon": "IoMdClose" 
+    "icon": "FaNewspaper" 
   },
   "Prompts for tax lawyers": {
     "description": "Finding information will be much easier with Prompts for Tax Lawyers",
@@ -73,10 +73,14 @@
   },
   "AI-boosted Research laws": {
     "description": "Pose questions about laws in a particular country or jurisdiction and receive a summary report.",
-    "icon": "FaSearch" 
+    "icon": "FaSearchengin" 
   },
   "Case Law Finder": {
     "description": "Find case law matching specific facts.",
     "icon": "FaSearch"
+  },
+  "Case File Analysis": {
+    "description": "Analysing the case file and get the Suggestion and opinion.",
+    "icon": "FaRegFilePdf"
   }
 }

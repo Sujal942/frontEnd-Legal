@@ -18,8 +18,8 @@ const AiLearn = () => {
       </div>
       {/* Embed YouTube video */}
       <iframe
-        width="720"
-        height="450"
+        width="820"
+        height="550"
         className="shadow-2xl rounded-xl"
         src="https://www.youtube.com/embed/U_1lRprmt8c"
         frameBorder="0"
