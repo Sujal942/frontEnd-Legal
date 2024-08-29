@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import "./GoogleTranslate.css";
+
 const GoogleTranslate = () => {
   useEffect(() => {
     const loadGoogleTranslateScript = () => {

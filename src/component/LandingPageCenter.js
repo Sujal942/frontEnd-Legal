@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
+import model5 from "../model5.png";
 
 const LandingPageCenter = () => {
   const [isTextVisible, setIsTextVisible] = useState(false);
@@ -16,7 +17,6 @@ const LandingPageCenter = () => {
   };
 
   const openStreamlitApp = () => {
-    // Replace with the URL of your local Streamlit app
     window.open("https://ai-waqeel.streamlit.app/", "_blank");
   };
 
@@ -77,8 +77,8 @@ const LandingPageCenter = () => {
         </div>
         <div className="w-full lg:w-1/2 flex justify-center mt-8 lg:mt-0">
           <img
-            className="w-[80%] lg:w-[700px] h-auto transition-all duration-500 ease-in-out"
-            src="https://framerusercontent.com/images/Ezvy7w6zDDwGSWUHg0FAY0HECQ.svg?scale-down-to=1024"
+            className="w-full sm:w-[90%] md:w-[80%] lg:w-[700px] xl:w-[900px] h-auto transition-all duration-500 ease-in-out ml-10"
+            src={model5}
             alt="AI Lawyer illustration"
           />
         </div>

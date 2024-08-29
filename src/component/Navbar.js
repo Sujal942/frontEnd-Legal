@@ -5,7 +5,7 @@ import GoogleTranslate from "./GoogleTranslate";
 const Navbar = () => {
   return (
     <>
-      <div className="flex items-center gap-14 mb-36 mt-[-50px] ">
+      <div className="flex items-center gap-14 mb-4 mt-[-50px] ">
         <nav className="flex items-center ml-28 gap-20 p-5 md:p-6 lg:p-8 ">
           <div className="flex items-center">
             <img
