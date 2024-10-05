@@ -8,12 +8,6 @@ To setup the Project You have to do the following steps:-
             REACT_APP_NEWS_API_KEY=your-api-key
     3. npm start
 
-    4. Now in second terminal you have to do to setup virtual environnment
-        (1) python -m venv venv
-        (2) .\venv\Scripts\Activate.ps1
-        (3) pip install -r requirements.txt
-    5. streamlit run app.py
-
 ## Available Scripts
 
 In the project directory, you can run:
